@@ -1,0 +1,17 @@
+import fitz  # PyMuPDF
+
+# Path to your PDF file
+pdf_path = 
+
+# Open the PDF file
+doc = fitz.open(pdf_path)
+
+# Iterate through each page
+for page_num in range(len(doc)):
+    page = doc.load_page(page_num)  # Load the current page
+    pix = page.get_pixmap()  # Render page to an image
+    img_path = r'page_{}.png'.format(page_num + 1)  # Define the output image path
+    pix.save(img_path)  # Save the image
+
+# Close the document
+doc.close()
