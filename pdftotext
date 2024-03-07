@@ -1,0 +1,18 @@
+import fitz  # PyMuPDF
+
+# Open the PDF file
+pdf_path = r'D:\Hr docs\input\pratik_resume.pdf'
+doc = fitz.open(pdf_path)
+
+# Initialize a variable to hold all the extracted text
+extracted_text = ''
+
+# Iterate over each page and extract text
+for page in doc:
+    extracted_text += page.get_text()
+
+# Close the PDF after extraction
+doc.close()
+
+# Display the extracted text
+print(extracted_text)
